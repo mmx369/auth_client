@@ -1,9 +1,12 @@
 import { observer } from 'mobx-react-lite'
 import { useContext, useEffect, useState } from 'react'
 import { Context } from '.'
+import { CanvasApp } from './components/canvas/CanvasApp'
 import LoginForm from './components/LoginForm'
 import { IUser } from './models/IUser'
 import UserService from './sevices/UserService'
+
+import './styles/app.scss'
 
 const App = () => {
   const { store } = useContext(Context)
@@ -56,6 +59,9 @@ const App = () => {
         {users.map((user) => (
           <div key={user.email}>{user.email}</div>
         ))}
+      </div>
+      <div style={{ border: 'solid 1px black' }}>
+        <CanvasApp />
       </div>
     </div>
   )
